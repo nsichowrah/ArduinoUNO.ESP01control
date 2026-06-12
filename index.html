@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ESP Control</title>
+</head>
+<body>
+
+<h1>ESP01 LED Control</h1>
+
+<button onclick="setState(1)">LED ON</button>
+<button onclick="setState(0)">LED OFF</button>
+
+<script>
+function setState(state)
+{
+    fetch(
+    "https://api.github.com/repos/YOUR_USERNAME/esp-control/contents/state.txt",
+    {
+      method: "PUT",
+      headers:
+      {
+        "Authorization":"Bearer YOUR_GITHUB_TOKEN",
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify({})
+    });
+}
+</script>
+
+</body>
+</html>
